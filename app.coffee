@@ -4,6 +4,7 @@ mongoose = require("mongoose")
 
 mongoose.connect "mongodb://localhost/test"
 app = module.exports = express.createServer()
+
 app.configure ->
   app.set "views", __dirname + "/views"
   app.set "view engine", "jade"
@@ -20,6 +21,7 @@ ApplicationSchema = new mongoose.Schema(
   name: String
   files: [ mongoose.Schema.Mixed ]
 )
+
 ApplicationSchema.methods.addFile = (file, options, fn) ->
   application = this
   gridfs.putFile file.path, file.filename, options, (err, result) ->
@@ -27,6 +29,7 @@ ApplicationSchema.methods.addFile = (file, options, fn) ->
     application.save fn
 
 Application = mongoose.model("application", ApplicationSchema)
+
 app.get "/", (req, res) ->
   Application.find {}, (err, applications) ->
     res.render "index",

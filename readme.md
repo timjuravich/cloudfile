@@ -1,12 +1,13 @@
-# Node.js Mongoose+GridFS Example
-Half baked thoughts with more to come.
+# CloudFile
+Adapted from James Carr's example of nodejs-mongodb-streaming
 
-This application illustrates using mongodb's GridStore through mongoose
-to store files in  mongodb's [GridFS](http://www.mongodb.org/display/DOCS/GridFS). 
+This application is currently in development, this application will support two interfaces and rely on a central service:
 
-An interesting addition is that when files are downloaded they are
-streamed from mongodb rather than loading the whole file into memory at
-once.
+## Web
+Users will be able to create accounts on the web service, login, upload files and categorize them, share them with friends
+
+## Mac OS X 
+Users will be able to create accounts on the web service, login, upload files and view a link to their web account
 
 ## Try it out
 ### Requirements
@@ -32,4 +33,3 @@ From the root of the project:
 ```bash
   mocha
 ```
-Have fun!
